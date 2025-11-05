@@ -111,3 +111,28 @@ print("Precision:", round(precision_score(y_test, y_pred), 4))
 print("Recall:", round(recall_score(y_test, y_pred), 4))
 print("PR-AUC:", round(average_precision_score(y_test, y_pred_proba), 4))
 print("\nReporte de Clasificación:\n", classification_report(y_test, y_pred))
+
+# =====================================
+# 12. Baseline: Random Forest
+# =====================================
+print("\nEntrenando modelo baseline")
+X_res_small, _, y_res_small, _ = train_test_split(
+    X_res, y_res, train_size=0.15, stratify=y_res, random_state=42
+)
+
+rf = RandomForestClassifier(
+    n_estimators=80,
+    max_depth=12,
+    class_weight="balanced",
+    random_state=42,
+    n_jobs=-1
+)
+rf.fit(X_res_small, y_res_small)
+print("Entrenamiento Random Forest completado.\n")
+
+# Evaluar baseline
+y_rf = rf.predict(X_test_scaled)
+print("==== Resultados Random Forest (Baseline) ====")
+print("F1-score:", round(f1_score(y_test, y_rf), 4))
+print("Precision:", round(precision_score(y_test, y_rf), 4))
+print("Recall:", round(recall_score(y_test, y_rf), 4))
