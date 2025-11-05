@@ -1,14 +1,14 @@
-# 🕵️‍♂️ Modelo de Detección de Fraudes en Transacciones Bancarias
+# 🕵 Modelo de Detección de Fraudes en Transacciones Bancarias
 
 **Autores:**  
-González G. Jerónimo  
-Vélez D. Daniel  
-Villada C. Juan José  
+Jerónimo González González  
+Daniel Vélez Duque  
+Juan José Villada Calle  
 
 **Semestre:** 2025-II
 ---
 
-## 📘 Descripción General
+## Descripción General
 
 Este proyecto implementa y evalúa modelos supervisados de **Machine Learning** para la **detección de fraude en transacciones financieras móviles**, utilizando el dataset **PaySim**, un simulador basado en datos reales de una empresa africana (López-Rojas et al., 2016).
 
@@ -18,13 +18,13 @@ El trabajo forma parte de un estudio académico enfocado en **detección de frau
 
 ---
 
-## 🧠 Pregunta de Investigación
+## Pregunta de Investigación
 
 > ¿Cómo pueden los modelos de aprendizaje automático detectar eficazmente transacciones fraudulentas en dinero móvil, considerando el fuerte desbalance de clases y la necesidad de interpretabilidad básica?
 
 ---
 
-## 🎯 Objetivos SMART
+## Objetivos SMART
 
 - **Specific:** Entrenar y evaluar un modelo supervisado (XGBoost / Random Forest) sobre PaySim.  
 - **Measurable:** Medir desempeño mediante **PR-AUC** y **F1-score**, antes y después del balanceo.  
@@ -34,7 +34,7 @@ El trabajo forma parte de un estudio académico enfocado en **detección de frau
 
 ---
 
-## 📊 Dataset: PaySim
+## Dataset: PaySim
 
 - **Fuente:** Kaggle — [PaySim Synthetic Financial Transactions](https://www.kaggle.com/datasets/ealaxi/paysim1)  
 - **Tamaño:** ~6.3 millones de registros  
@@ -50,7 +50,7 @@ El trabajo forma parte de un estudio académico enfocado en **detección de frau
 
 ---
 
-## ⚙️ Metodología
+## Metodología
 
 ### 1. Preprocesamiento
 - Eliminación de variables con fuga de información (`isFlaggedFraud`).  
@@ -76,19 +76,19 @@ El trabajo forma parte de un estudio académico enfocado en **detección de frau
 
 ---
 
-## 🧾 Resultados Principales
+## Resultados Principales
 
 | Modelo | F1-score | Precision | Recall | PR-AUC |
 |--------|-----------|-----------|--------|--------|
 | **XGBoost** | 0.941 | 0.8911 | 0.9968 | 0.9978 |
 | **Random Forest** | 0.9812 | 0.9654 | 0.9976 | — |
 
-📌 El modelo XGBoost detectó prácticamente todos los fraudes, con un F1-score de 0.94 y un PR-AUC de 0.9978.  
+ El modelo XGBoost detectó prácticamente todos los fraudes, con un F1-score de 0.94 y un PR-AUC de 0.9978.  
 Las variables más influyentes fueron `diffOrg`, `newbalanceOrig` y `ratio`.
 
 ---
 
-## 💬 Discusión
+## Discusión
 
 - **Rendimiento:** el modelo logra alta sensibilidad (recall ≈ 0.99) y buena precisión (~0.89), equilibrando detección y control de falsos positivos.  
 - **Interpretabilidad:** las variables derivadas basadas en balances (`diffOrg`) resultaron críticas.  
@@ -97,7 +97,7 @@ Las variables más influyentes fueron `diffOrg`, `newbalanceOrig` y `ratio`.
 
 ---
 
-## 🚀 Reproducción del Experimento
+## Reproducción del Experimento
 
 ### Ejecución en Google Colab
 1. Clonar este repositorio o subir los archivos `.ipynb` y `paysim.csv`.  
