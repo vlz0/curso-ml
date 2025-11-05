@@ -136,3 +136,19 @@ print("==== Resultados Random Forest (Baseline) ====")
 print("F1-score:", round(f1_score(y_test, y_rf), 4))
 print("Precision:", round(precision_score(y_test, y_rf), 4))
 print("Recall:", round(recall_score(y_test, y_rf), 4))
+
+# =====================================
+# 13. Importancia de variables (alternativa a SHAP)
+# =====================================
+importances = pd.Series(xgb.feature_importances_, index=X_train_encoded.columns)
+top_features = importances.sort_values(ascending=False).head(10)
+
+plt.figure(figsize=(8,6))
+top_features.plot(kind='barh')
+plt.title("Top 10 Features - XGBoost Feature Importance")
+plt.xlabel("Importancia")
+plt.gca().invert_yaxis()
+plt.show()
+
+print("\nVariables más influyentes:")
+print(top_features)
